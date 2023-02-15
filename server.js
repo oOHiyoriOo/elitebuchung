@@ -32,14 +32,12 @@ app.get('/', (req, res) => {
 
 app.post('/book', (req,res) => {
     let data = req.body;
-    if(data.class != "" && data.room != "" && data.start != "" && data.duration != ""){
+    if( ["day","hour","teacher","fach"].every(key => data[key] !== '') ){
+
         let db = JSON.parse( fs.readFileSync(process.cwd()+"/data/bookings.json",{encoding:'utf-8'}) );
-        db.push({
-            "class": data.class,
-            "room": data.room,
-            "start": data.start,
-            "duration": data.duration
-        })
+
+        db.push(data)
+
         fs.writeFileSync(process.cwd()+"/data/bookings.json",JSON.stringify(db),{encoding:'utf-8'})
         res.status(200).send({'msg':'data saved!'})
     }else{

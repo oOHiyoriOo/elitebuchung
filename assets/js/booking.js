@@ -1,26 +1,22 @@
-function book_room(){
-  let data = {
-    "class": $('#class').val(),
-    "room": $('#room').val(),
-    "start": $('#start-time').val(),
-    "duration": $('#duration').val()
-  }
+// start at load.
+get_books();
+setInterval(() => { // update every second because lol.
+  get_books();
+},1000)
 
-  $.ajax({
-    type: "POST",
-    url: "/book",
-    data: data,
-    success: function(response) {
-      console.log(response);
+
+const days = ["mo","di","mi","do","fr","sa","do"]
+
+function get_books(){
+  $.get("/book", function(response) {
+    let bookings = JSON.parse(response)
+    let booking_table = $('#bookings-table')
+    for(i in bookings){
+      
+      let booking = bookings[i]
+      let day_index = days.indexOf( String(booking['day']).toLowerCase() ) + 2
+      let hour_index = Number.parseInt( booking['hour'] )
+      $(`#bookings-table > tbody > tr:nth-child(${hour_index}) > td:nth-child(${day_index})`).html(`${booking['teacher']}<br>(${booking['fach']})`)
     }
   });
 }
-
-
-$.get("/book", function(response) {
-  let bookings = JSON.parse(response)
-  let booking_table = $('#bookings-table')
-  for(i in bookings){
-    console.log(bookings[i])
-  }
-});

@@ -11,68 +11,251 @@
   <body>
     <h1>Booking Program</h1>
     
-    <form id="booking-form">
-      <label for="class">Class:</label>
-      <input type="text" id="class" name="class"><br>
-      <label for="room">Room:</label>
-      <select id="room" name="room">
-        <option value="">Select a room</option>
-        <option value="1">Room 1</option>
-        <option value="2">Room 2</option>
-        <option value="3">Room 3</option>
-      </select><br>
-      <label for="start-time">Start Time:</label>
-      <select id="start-time" name="start-time">
-        <option value="">Select a start time</option>
-        <option value="07:45">07:45</option>
-        <option value="08:15">08:15</option>
-        <option value="09:30">09:30</option>
-        <option value="10:45">10:45</option>
-        <option value="12:00">12:00</option>
-        <!-- Add more options for start times here -->
-      </select><br>
-      <label for="duration">Duration:</label>
-      <select id="duration" name="duration">
-        <option value="">Select an end time</option>
-        <option value="08:15">1</option>
-        <option value="09:15">2</option>
-        <option value="10:30">4</option>
-        <!-- Add more options for end times here -->
-      </select><br>
-      <input type="submit" onclick="book_room();return false;" value="Book Room">
-    </form>
     <h2>Booked Rooms</h2>
+    
+  
     <table id="bookings-table">
       <thead>
         <tr>
-          <th>Time</th>
-          <th>Class</th>
-          <th>Room</th>
-          <th>Start Time</th>
-          <th>End Time</th>
+          <th >Std.<br></th>
+          <th ><b></b>
+            <center><b>Mo</b></center>
+          </th>
+          <th ><b></b>
+            <center><b>Di</b></center>
+          </th>
+          <th ><b></b>
+            <center><b>Mi</b></center>
+          </th>
+          <th ><b></b>
+            <center><b>Do</b></center>
+          </th>
+          <th ><b></b>
+            <center><b>Fr</b></center>
+          </th>
+          <th ><b></b>
+            <center><b>Sa</b></center>
+          </th>
+          <th ><b></b>
+            <center><b>So</b></center>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-            <th>07:45</th>
+          <td>1</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
         <tr>
-          <th>08:15</th>
+          <td>2</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
         <tr>
-          <th>09:15</th>
+          <td>3</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
         <tr>
-          <th>10:30</th>
+          <td>4</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
         <tr>
-          <th>11:45</th>
+          <td>5</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
         <tr>
-          <th>13:00</th>
+          <td>6</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
       </tbody>
     </table>
+
+
+    <div id="booking_window" style="display: none;">
+      <div>
+        <h2>Book Room</h2>
+        <p>Tag: <input id="modal-day" type="text" disabled></p>
+        <p>Stunde: <input id="modal-hour" type="text" disabled></p>
+        <p>Lehrer: <input id="modal-teach" type="text"></p>
+        <p>Fach: <input id="modal-name" type="text"></p>
+
+        <button onclick="saveBooking();$('#booking_window').hide();">Save</button>
+        <button onclick="$('#booking_window').hide();">Cancel</button>
+      </div>
+    </div>
+
+    <script>
+      $('td:contains("-")').click(function() {
+        if( this.textContent != "-") return false;
+
+        var stunde = $(this).closest('tr').find('td:first-child').text();
+        var tag = $(this).closest('table').find('thead th').eq($(this).index()).text();
+        $('#modal-hour').val(stunde.replace(/ /g,""));
+        $('#modal-day').val(tag.replace(/ /g,""));
+        $('#booking_window').show();
+      });
+
+
+
+      function saveBooking(){
+        data = {
+          "day":$('#modal-day').val(),
+          "hour":$('#modal-hour').val(),
+          "teacher":$('#modal-teach').val(),
+          "fach": $('#modal-name').val()
+        }
+
+        $('#modal-teach').val("")
+        $('#modal-name').val("")
+        
+        if( ["day","hour","teacher","fach"].every(key => data[key] !== '') ){
+
+          $.ajax({
+            type: "POST",
+            url: "/book",
+            data: data,
+            success: function(response) {
+              console.log( response.statusCode )
+            }
+          });
+        }
+      }
+    </script>
     <script src="/js/booking.js"></script>
   </body>
 
