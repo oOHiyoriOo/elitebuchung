@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Booking Program</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Booking Program</h1>
+    
+    <form id="booking-form">
+      <label for="class">Class:</label>
+      <input type="text" id="class" name="class"><br>
+      <label for="room">Room:</label>
+      <select id="room" name="room">
+        <option value="">Select a room</option>
+        <option value="1">Room 1</option>
+        <option value="2">Room 2</option>
+        <option value="3">Room 3</option>
+      </select><br>
+      <label for="start-time">Start Time:</label>
+      <select id="start-time" name="start-time">
+        <option value="">Select a start time</option>
+        <option value="07:45">07:45</option>
+        <option value="08:15">08:15</option>
+        <option value="09:30">09:30</option>
+        <option value="10:45">10:45</option>
+        <option value="12:00">12:00</option>
+        <!-- Add more options for start times here -->
+      </select><br>
+      <label for="duration">Duration:</label>
+      <select id="duration" name="duration">
+        <option value="">Select an end time</option>
+        <option value="08:15">1</option>
+        <option value="09:15">2</option>
+        <option value="10:30">4</option>
+        <!-- Add more options for end times here -->
+      </select><br>
+      <input type="submit" onclick="book_room();return false;" value="Book Room">
+    </form>
+    <h2>Booked Rooms</h2>
+    <table id="bookings-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Class</th>
+          <th>Room</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <th>07:45</th>
+        </tr>
+        <tr>
+          <th>08:15</th>
+        </tr>
+        <tr>
+          <th>09:15</th>
+        </tr>
+        <tr>
+          <th>10:30</th>
+        </tr>
+        <tr>
+          <th>11:45</th>
+        </tr>
+        <tr>
+          <th>13:00</th>
+        </tr>
+      </tbody>
+    </table>
+    <script src="/js/booking.js"></script>
+  </body>
+
+</html>
