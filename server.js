@@ -51,6 +51,10 @@ app.get('/book', (req,res) => {
     res.send( fs.readFileSync(process.cwd()+"/data/bookings.json",{encoding:'utf-8'}) )
 });
 
+
+
+// Hallo Motherfucker
+
 app.listen(cfg.port,cfg.host, () => {
     console.log(`App listening at http://${cfg.host}:${cfg.port}`);
 });
