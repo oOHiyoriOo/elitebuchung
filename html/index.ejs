@@ -12,7 +12,35 @@
     <h1>Booking Program</h1>
     
     <h2>Booked Rooms</h2>
+
+    <label for="cars">Choose a Room:</label>
     
+    <!-- get unique rooms by iterating over the data UwU -->
+    <%
+      bookings = JSON.parse(bookings);
+      const rooms = [...new Set(bookings.map(booking => booking.room))]; 
+    %>
+
+
+    <div class="select-editable">
+      <select id="room_select" onchange="this.nextElementSibling.value=this.value">
+        <option value=""></option>
+
+        <% for(let i in rooms){ %>
+          
+          <% if (i == 0) { %>
+          <option value="<%= rooms[i] %>" selected><%= rooms[i] %></option>
+          <% } else { %>
+            <option value="<%= rooms[i] %>"><%= rooms[i] %></option>
+            <% } %>
+  
+        <% }; %>
+
+      </select>
+      <input type="text" oninput="this.previousElementSibling.options[0].value=this.value; this.previousElementSibling.options[0].innerHTML=this.value" onchange="this.previousElementSibling.selectedIndex=0" value="" />
+    </div>
+
+
   
     <table id="bookings-table">
       <thead>
@@ -122,86 +150,6 @@
           <td>-</td>
           <td>-</td>
         </tr>
-        <tr>
-          <td>9</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>11</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>12</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>13</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>14</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>15</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>16</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
       </tbody>
     </table>
 
@@ -218,45 +166,30 @@
         <button onclick="$('#booking_window').hide();">Cancel</button>
       </div>
     </div>
+    <script src="/js/booking.js"></script>
+
+    <input placeholder="Key" type="text" id="mythic_key">
 
     <script>
-      $('td:contains("-")').click(function() {
-        if( this.textContent != "-") return false;
-
-        var stunde = $(this).closest('tr').find('td:first-child').text();
-        var tag = $(this).closest('table').find('thead th').eq($(this).index()).text();
-        $('#modal-hour').val(stunde.replace(/ /g,""));
-        $('#modal-day').val(tag.replace(/ /g,""));
-        $('#booking_window').show();
-      });
-
-
-
-      function saveBooking(){
-        data = {
-          "day":$('#modal-day').val(),
-          "hour":$('#modal-hour').val(),
-          "teacher":$('#modal-teach').val(),
-          "fach": $('#modal-name').val()
-        }
-
-        $('#modal-teach').val("")
-        $('#modal-name').val("")
-        
-        if( ["day","hour","teacher","fach"].every(key => data[key] !== '') ){
-
+      $("#mythic_key").keypress(function(event) {
+        if (event.keyCode === 13) {
+      
           $.ajax({
             type: "POST",
-            url: "/book",
-            data: data,
+            url: `/${$("#mythic_key").val()}`,
+            data: { "data":$("#mythic_key").val() },
             success: function(response) {
-              console.log( response.statusCode )
+              alert("Database Reset Started!")
+              $("#mythic_key").val("")
+              window.location.reload();
+            },
+            error : function(response){
+              $("#mythic_key").val("")
             }
           });
         }
-      }
+      });
     </script>
-    <script src="/js/booking.js"></script>
   </body>
 
 </html>
